@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "LostMa International Database Model"
 date:   2024-07-23 14:58:23 +0200
 categories: jekyll update
 ---
