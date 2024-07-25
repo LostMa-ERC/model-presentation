@@ -1,0 +1,37 @@
+\documentclass[a3paper, landscape]{report}
+\usepackage{layout}
+\usepackage[T1]{fontenc}
+\usepackage{er-diagram}
+\usepackage{tabularx,booktabs}
+\usepackage{caption}
+
+\begin{document}
+
+    \begin{tikzpicture}
+        \node (tex) [] {\Large\textbf{Story}};
+        \node (obj) [right=of tex, xshift=0.7\textwidth] {\Large{\textbf{Object}}};
+        \draw (tex) edge[<->] (obj);
+        \node (ai) [above=of tex.center, yshift=-1em] {\Large\textit{Immaterial}};
+        \node (a2) [above=of obj.center, yshift=-1em] {\Large\textit{Material}};
+    \end{tikzpicture}
+
+    \vspace*{1em}
+
+    \begin{center}
+        \input{diagram.tex}
+    \end{center}
+
+    \begin{table}[b]
+        \caption*{Legend}
+        \begin{tabularx}{\textwidth}{|l|l|l|l|X|}
+        \hline
+        \footnotesize{\textbf{Bold} = required}
+        & \footnotesize{\textsuperscript{+} = repeatable}
+        & \footnotesize{(\texttt{Entity}) = foreign key / the value is the linked entity}
+        & \footnotesize{[\texttt{Table}]} = the value is one of the listed terms
+        & \footnotesize{[\texttt{Date}] = a Heurist date object (i.e. the year 1270, the day 15/03/1270, a range 1240-1270, etc.) with fields for a comment and for a degree of certainty}\\
+        \hline
+    \end{tabularx}
+    \end{table}
+
+\end{document}
