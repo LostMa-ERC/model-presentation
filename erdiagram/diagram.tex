@@ -3,163 +3,183 @@
 \begin{tikzpicture}[-,shorten >=1pt,auto,node distance=1.5cm,semithick]
 \tikzstyle{every state}=[fill=red,draw=none,text=white]
 
+\newcommand{\secHeader}[1]{\par \hspace*{\fill}\textit{#1}\\}
+\newcommand{\secHeaderEnd}{\par\hrulefill}
+
 \pic [] { entity = {{cycle}
 {\textbf{Cycle}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{main title} \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - alternative titles \textsuperscript{+} \\
-  - is part of (\texttt{Cycle}) \\
-  - matter [\texttt{Matter}] \\
-  \hline \colorbox{gray}{\textsc{References}} \\
-  - is referenced in \textsuperscript{+} (\texttt{Citation}) \\
+  %
+  \secHeader{Label Components}
+    - \textbf{preferred name}
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \href{https://www.wikidata.org/wiki/Property:P4970}{alternative names} \textsuperscript{+}
+  \\ - member of cycle (\texttt{Cycle})
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
 }
 }};
 
 \pic [right = 3.3em of cycle] { entity = {{work}
 {\textbf{Work}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{main title} \\
-  - is part of (\texttt{Cycle})\\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - alternative titles \textsuperscript{+} \\
-  - is modeled on \textsuperscript{+} (\texttt{Work})\\
-  \hline \colorbox{gray}{\textsc{References}} \\
-  - is referenced in \textsuperscript{+} (\texttt{Citation}) \\
+  %
+  \secHeader{Label Components}
+  - \textbf{preferred name} \\
+  - member of cycle (\texttt{Cycle})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \href{https://www.wikidata.org/wiki/Property:P4970}{alternative names} \textsuperscript{+} \\
+  - \textbf{matter} (\texttt{Matter} vocab.) \\
+  - secondary matter \textsuperscript{+} (\texttt{Matter} vocab.) \\-
+  - is modeled on \textsuperscript{+} (\texttt{Work})
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
 }
 }};
 
 \pic [right = 3.3em of work] { entity = {{text}
 {\textbf{Text}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{main title} \\
-  - language \\
-  - form [\texttt{Form}] \\
-  \hline \colorbox{gray}{\textsc{Hypothesis}} \\
-  - hypothetical (y/n) \\
-  - hypothesis \textsuperscript{+} (\texttt{Hypothesis}) \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
+  %
+  \secHeader{Label Components}
+  - \textbf{preferred name} \\
+  - \textbf{language} (\texttt{Language} vocab.) \\
+  - \textbf{form} (\texttt{Form} vocab.)
+  \secHeaderEnd
+  %
+  \secHeader{Hypothesis}
+  - \textbf{is hypothetical} (y/n)
+  \secHeaderEnd
+  %
+  \secHeader{Description}
   - \textbf{is expression of} (\texttt{Work})\\
-  - alternative titles \textsuperscript{+} \\
+  - lost status \\
+  - \href{https://www.wikidata.org/wiki/Property:P4970}{alternative names} \textsuperscript{+} \\
   - is modeled on \textsuperscript{+} (\texttt{Text})\\
-  - \textbf{matter} \textsuperscript{+} [\texttt{Matter}] \\
-  - \textbf{regional genre}\\
-  - poetic meter\\
-  - rhyme type \\
+  - secondary matter \textsuperscript{+} (\texttt{Matter} vocab.) \\
+  - \textbf{genre} (\texttt{Genre}) \\
+  - poetic meter (\texttt{Meter} vocab.) \\
+  - rhyme type (\texttt{Rhyme} vocab.) \\
   - strophe count \\
   - strophe length \\
-  - verse length \\
-  \hline \colorbox{gray}{\textsc{Production}} \\
-  - is written by (\texttt{Person})\\
-  - is adapted by (\texttt{Person})\\
-  - \textbf{date of creation} [\texttt{Date}] \\
+  - verse length
+  \secHeaderEnd
+  %
+  \secHeader{Production}
+  - is written by \textsuperscript{+} (\texttt{Person})\\
+  - is adapted by \textsuperscript{+} (\texttt{Person})\\
+  - \textbf{date of creation} \\
   - date of creation source \textsuperscript{+} (\texttt{Citation})\\
   - place of creation (\texttt{Place}) \\
-  - place of creation source \textsuperscript{+} (\texttt{Citation}) \\
+  - place of creation source \textsuperscript{+} (\texttt{Citation})
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
 }
 }};
 
 \pic [right = 3.3em of text] { entity = {{witness}
 {\textbf{Witness}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{is manifestation of} (\texttt{Text}) \\
-  - main siglum \\
-  - has part \textsuperscript{+} (\texttt{TextPart}) \\
-  \hline \colorbox{gray}{\textsc{Hypothesis}} \\
-  - hypothetical (y/n) \\
-  - hypothesis \textsuperscript{+} (\texttt{Hypothesis}) \\
+  %
+  \secHeader{Label Components}
+  - \href{https://www.wikidata.org/wiki/Property:P1557}{\textbf{manifests}} (\texttt{Text}) \\
+  - preferred siglum \\
+  - \href{https://www.wikidata.org/wiki/Property:P527}{has part} \textsuperscript{+} (\texttt{Part})
+  \secHeaderEnd
+  %
+  \secHeader{Hypothesis}
+  - \textbf{is hypothetical} (y/n) \\
   - was part of (\texttt{Document}) \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - status [\texttt{Status}] \\
-  - is citation (y/n) \\
-  - is manifestation of (\texttt{Text})\\
-  - is preceded by fragm. (\texttt{Witness})\\
-  - is preceded by wit. (\texttt{Witness})\\
-  - is referenced in (\texttt{Citation}) \\
-  \hline
-  \colorbox{gray}{\textsc{Production}} \\
-  - scribe \textsuperscript{+} (\texttt{Person})\\
-  - written language variant, aka scripta\\
-  - \textbf{date of creation} [\texttt{Date}] \\
-  - date of creation source \textsuperscript{+} (\texttt{Citation})\\
+  - followed fragment in hypo doc (\texttt{Witness}) \\
+  - followed witness in hypo doc (\texttt{Witness})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \textbf{status} (\texttt{Status}) \\
+  - status notes \\
+  - \textbf{is citation} (y/n)
+  \secHeaderEnd
+  %
+  \secHeader{Production}
+  - scribe \textsuperscript{+} (\texttt{Person}) \\
+  - written language variant (\texttt{Scripta}) \\
+  - \href{https://www.wikidata.org/wiki/Property:P571}{\textbf{date of creation}} \\
+  - date of creation source \textsuperscript{+} (\texttt{Citation}) \\
   - place of creation (\texttt{Place}) \\
   - place of creation source \textsuperscript{+} (\texttt{Citation}) \\
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation}) \\
 }
 }};
 
 \pic [right = 3.3em of witness] { entity = {{part}
 {\textbf{Part}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
+  \secHeader{Label Components}
   - \textbf{is inscribed on} (\texttt{Document}) \\
-  - order in series of parts (default 1) \\
-  \hline \colorbox{gray}{\textsc{Locus}} \\
-  - number of lines represented from \texttt{Text} \\
-  - part of \texttt{Text} represented \\
-  - volume number in multi-volume \texttt{Witness} \\
-  \hline \colorbox{gray}{\textsc{Extent}} \\
+  - \textbf{\href{https://www.wikidata.org/wiki/Property:P1545}{order in series}} (default 1)
+  \secHeaderEnd
+  %
+  \secHeader{Content}
+  - part of text \\
+  - number of verses \\
+  - volume number
+  \secHeaderEnd
+  %
+  \secHeader{\href{https://tei-c.org/release/doc/tei-p5-doc/en//html/ref-extent.html}{Extent}}
   - number of lines \\
-  - lines are incomplete, i.e. cut (y/n) \\
-  - first page | last page \textsuperscript{+} (fol\textsubscript{1}|fol\textsubscript{2})
+  - \textbf{lines are incomplete} (y/n) \\
+  - \href{https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-locus.html}{\textbf{page ranges}} \textsuperscript{+} (fol\textsubscript{1}|fol\textsubscript{2})
 }
 }};
 
 \pic [right = 3.3em of part] { entity = {{doc}
 {\textbf{Document}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
+  \secHeader{Label Components}
   - current shelfmark \\
   - is conserved in (\texttt{Repository}) \\
-  - invented label if hypothetical \\
-  \hline \colorbox{gray}{\textsc{Hypothesis}} \\
-  - hypothetical (y/n) \\
-  - hypothesis \textsuperscript{+} (\texttt{Hypothesis}) \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
   - collection\\
+  - invented label
+  \secHeaderEnd
+  %
+  \secHeader{Hypothesis}
+  - \textbf{is hypothetical} (y/n)
+  \secHeaderEnd
+  %
+  \secHeader{Description}
   - old shelfmark \textsuperscript{+}\\
-  - has digitization (\texttt{Digitization})\\
-  - collection of fragments (y/n) \\
-  - is referenced in \textsuperscript{+} (\texttt{Citation})\\
-}
-}};
-
-\pic [below = 3em of part] {entity = {{images}
-{\textbf{Images}}
-{
-  \colorbox{gray}{\textsc{Label Components}}\\
-  - \textbf{presents} (\texttt{Part})\\
-  - \textbf{contained in} (\texttt{Digitization})\\
-  \hline
-  \colorbox{gray}{\textsc{Description}} \\
-  - \textbf{first view | last view} (view\textsubscript{1}|view\textsubscript{2}) \\
-  - \textbf{corresponding first page | last page} (fol\textsubscript{1}|fol\textsubscript{2}) \\
-}
-}};
-
-\pic [right = 3.3em of images] { entity = {{digitization}
-{\textbf{Digitization}}
-{
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{URL} \\
-  - ARK \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - digitized by (\texttt{Repository})
-  - link to IIIF manifest \\
+  - \textbf{collection of fragments} (y/n) \\
+  - digitization \textsuperscript{+} (\texttt{Digitization})
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation}) \\
 }
 }};
 
 \pic [right = 3.3em of doc] { entity = {{repository}
 {\textbf{Repository}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{institutional name} \\
-  - \textbf{City} (\texttt{Place}) \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - alternative names \textsuperscript{+}\\
+  \secHeader{Label Components}
+  - \textbf{preferred name} \\
+  - \textbf{city} (\texttt{Place})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \href{https://www.wikidata.org/wiki/Property:P4970}{alternative names} \textsuperscript{+}\\
   - VIAF identifier \\
   - ISNI \\
   - Biblissima identifier \\
@@ -167,88 +187,155 @@
 }
 }};
 
-\pic at (current bounding box.north east) [anchor=north east, yshift=6em] { entityassociative = {{place}
-{\textbf{Place}}
-{
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{Place name} \\
-  - State or Province or Department \\
-  - \textbf{Country} \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - Place type \\
-  - Location mappable \\
-  - Location certainty (1, 2, 3, 4, 5) \\
-  - GeoNames ID \\
-}
-}};
-
-\pic at (current bounding box.north west) [anchor=north west, yshift=2em] { entityassociative = {{hypothesis}
-{\textbf{Hypothesis}}
-{
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - \textbf{attested object} (\texttt{Text}, \texttt{Wintess}, \texttt{Document}) \\
-  - \textbf{related real objects} \textsuperscript{+} (\texttt{Work}, \texttt{Text}, \texttt{Witness}, \texttt{Part}) \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - claim \\
-  - certainty (1, 2, 3, 4, 5) \\
-  - is referenced in \textsuperscript{+} (\texttt{Citation}) \\
-  - additional note \\
-}
-}};
-
-\pic  at (current bounding box.south east) [anchor=south east] { entityassociative = {{person}
+\pic [above = 3.3em of text] {entity = {{person}
 {{\textbf{Person}}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - name \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
-  - alternative names \textsuperscript{+} \\
-  - fictional (y/n) \\
-  - is referenced in \textsuperscript{+} (\texttt{Citation})\\
+  \secHeader{Label Components} \\
+  - \textbf{preferred name}
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \href{https://www.wikidata.org/wiki/Property:P4970}{alternative names} \textsuperscript{+} \\
+  - \textbf{fictional} (y/n)
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
 }
 }};
 
-\pic at (current bounding box.south west) [anchor=south west]{ entityassociative = {{citation}
+\draw[omany-oone] (text) -- (person);
+\draw[omany-oone] (witness) -- (person);
+
+\pic [right = 3.3em of person] {entity = {{hypothesis}
+{\textbf{Hypothesis}}
+{
+  \secHeader{Label Components}
+  - \textbf{attested object} (\texttt{Text}, \texttt{Witness}, \texttt{Document})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - claim \\
+  - certainty
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation}) \\
+}
+}};
+
+\draw[omany-omany] (text) -- (hypothesis);
+\draw[omany-omany] (witness) -- (hypothesis);
+\draw[omany-omany] (doc) -- (hypothesis);
+
+\pic [right = 3em of hypothesis] {entity = {{images}
+{\textbf{Images}}
+{
+  \secHeader{Label Components}
+  - \textbf{presents} (\texttt{Part}) \\
+  - \textbf{contained in} (\texttt{Digitization})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - \textbf{file range} (img\textsubscript{1}|img\textsubscript{2}) \\
+  - \textbf{corresponding page range} (fol\textsubscript{1}|fol\textsubscript{2})
+}
+}};
+
+\draw[one-omany] (part) -- (images);
+
+\pic [right = 3em of images] { entity = {{digitization}
+{\textbf{Digitization}}
+{
+  \secHeader{Label Components}
+  - \textbf{URI} \\
+  - ARK
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - digitized by (\texttt{Repository}) \\
+  - IIIF manifest \textsuperscript{+} \\
+}
+}};
+
+\draw[one-omany] (part) -- (digitization);
+\draw[omany-oone] (digitization) -- (repository);
+\draw[many-one] (images) -- (digitization);
+
+\pic at (current bounding box.south east) [anchor=north east] { entity = {{place}
+{\textbf{Place}}
+{
+  \secHeader{Label Components}
+  - \textbf{place name} \\
+  - administrative region \\
+  - country [\texttt{Country} vocab.]
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - place type \\
+  - location mappable \\
+  - location certainty \\
+  - GeoNames ID
+}
+}};
+
+\draw[omany-oone] (text) -- (place);
+\draw[omany-oone] (witness) -- (place);
+\draw[one-omany] (place) -- (repository);
+
+\pic at (current bounding box.north west) [anchor=north west] { entity = {{citation}
 {\textbf{Citation}}
 {
-  \colorbox{gray}{\textsc{Label Components}} \\
-  - author \\
-  - title or source \\
-  - year [\texttt{Date}] \\
-  \hline \colorbox{gray}{\textsc{Description}} \\
+  \secHeader{Label Components}
+  - author\textsuperscript{+} \\
+  - title \\
+  - database \\
+  - record id
+  \secHeaderEnd
+  %
+  \secHeader{Description}
   - DOI or URL \\
-  - BibTeX citation \\
+  - BibTeX citation
 }
 }};
 
-
-\pic [right = 6em of citation, yshift=6em] { entityweak = {{matter}
-{\textbf{Matter}}
+\pic at (current bounding box.south west) [anchor=south west] { entityweak = {{language}
+{\textbf{Language}}
 {
- - Britain \\
- - France \\
- - Rome \\
- - other \\
+  - ...
 }
 }};
 
-\pic [below = 1em of matter] { entityweak = {{form}
+\pic [above = 1 em of language] { entityweak = {{form}
 {\textbf{Form}}
 {
- - prose \\
- - verse \\
- - mixed \\
+  - prose \\
+  - verse \\
+  - mixed \\
+  - unknown
 }
 }};
 
-\pic [below = 1em of form] { entityweak = {{status}
-{\textbf{Status}}
+
+\pic [above = 1 em of form] { entityweak = {{matter}
+{\textbf{Matter}}
 {
- - complete \\
- - defective \\
- - fragment \\
+ - Britain or Brittany \\
+ - England \\
+ - France \\
+ - Rome \\
+ - unknown
 }
 }};
+
+% \pic [below = 1em of form] { entityweak = {{status}
+% {\textbf{Status}}
+% {
+%  - complete \\
+%  - defective \\
+%  - fragment \\
+% }
+% }};
 
 
 \draw[oone-many] (cycle) -- (work);
@@ -257,28 +344,26 @@
 \draw[one-omany] (witness) -- (part);
 \draw[many-one] (part) -- (doc);
 \draw[omany-one] (doc) -- (repository);
-\draw[omany-omany] (witness.80) |-++(5,1)-| node[pos=0.4]{\textit{Witness(es) of Hypothetical Document}} (doc);
+% \draw[omany-omany] (witness.80) |-++(5,1)-| node[pos=0.4]{\textit{Witness(es) of Hypothetical Document}} (doc);
 
 
-\draw[omany-oone] (digitization.35) -|++(1,1)-| (repository.south);
-\draw[omany-one] (digitization.north) -- (doc.south);
-\draw[omany-one] (images) -- (part);
-\draw[omany-one] (images.east) -- (digitization.west);
+% \draw[one-omany] (part.south) |-++(0,-1)|- (digitization.145);
+% \draw[omany-oone] (digitization.35) -|++(1,0)-| (repository.south);
 
-% Place associative entity
-\draw[omany-oone] (text.80) |-++(1,3.5)-| node[]{} (place.80);
-\draw[omany-oone] (witness.90) |-++(1,2.5)-| node[]{} (place.100);
-\draw[one-omany] (place) -- (repository);
+% % Place associative entity
+% \draw[omany-oone] (text.80) |-++(1,3.5)-| node[]{} (place.80);
+% \draw[omany-oone] (witness.90) |-++(1,2.5)-| node[]{} (place.100);
+% \draw[one-omany] (place) -- (repository);
 
-% Person associative entity
-\draw[omany-oone] (text.south) |-++(1,-5)-| node[]{} (person.290);
-\draw[omany-oone] (witness.south) |-++(1,-4)-| node[]{} (person.250);
+% % Person associative entity
+% \draw[omany-oone] (text.south) |-++(1,-5)-| node[]{} (person.290);
+% \draw[omany-oone] (witness.south) |-++(1,-4)-| node[]{} (person.250);
 
-% Hypothesis associative entity
-\draw[omany-oone] (witness.100) |-++(0,3.5)-| node[]{} (hypothesis.110);
-\draw[omany-oone] (work.90) |-++(0,1)|- node[]{} (hypothesis.330);
-\draw[omany-oone] (text.100) |-++(0,0.5)|- node[]{} (hypothesis.30);
-\draw[omany-oone] (part.north) |-(2,11)-| node[]{} (hypothesis.70);
+% % Hypothesis associative entity
+% \draw[omany-oone] (witness.100) |-++(0,3.5)-| node[]{} (hypothesis.110);
+% \draw[omany-oone] (work.90) |-++(0,1)|- node[]{} (hypothesis.330);
+% \draw[omany-oone] (text.100) |-++(0,0.5)|- node[]{} (hypothesis.30);
+% \draw[omany-oone] (part.north) |-(2,11)-| node[]{} (hypothesis.70);
 
 
 \end{tikzpicture}
