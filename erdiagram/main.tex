@@ -4,18 +4,21 @@
 \usepackage{er-diagram}
 \usepackage{tabularx,booktabs}
 \usepackage{caption}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
 
 \begin{document}
 
-    \begin{tikzpicture}
-        \node (tex) [] {\Large\textbf{Story}};
-        \node (obj) [right=of tex, xshift=0.7\textwidth] {\Large{\textbf{Object}}};
-        \draw (tex) edge[<->] (obj);
-        \node (ai) [above=of tex.center, yshift=-1em] {\Large\textit{Immaterial}};
-        \node (a2) [above=of obj.center, yshift=-1em] {\Large\textit{Material}};
-    \end{tikzpicture}
+    % \begin{tikzpicture}
+    %     \node (tex) [] {\Large\textbf{Story}};
+    %     \node (obj) [right=of tex, xshift=0.7\textwidth] {\Large{\textbf{Object}}};
+    %     \draw (tex) edge[<->] (obj);
+    %     \node (ai) [above=of tex.center, yshift=-1em] {\Large\textit{Immaterial}};
+    %     \node (a2) [above=of obj.center, yshift=-1em] {\Large\textit{Material}};
+    % \end{tikzpicture}
 
-    \vspace*{1em}
+    % \vspace*{1em}
 
     \begin{center}
         \input{diagram.tex}
