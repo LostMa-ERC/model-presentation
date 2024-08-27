@@ -45,7 +45,7 @@
 }
 }};
 
-\pic [right = 3.3em of work] { entity = {{text}
+\pic [right = 3.3em of work, yshift=-8em] { entity = {{text}
 {\textbf{Text}}
 {
   %
@@ -262,7 +262,7 @@
 \draw[omany-oone] (digitization) -- (repository);
 \draw[many-one] (images) -- (digitization);
 
-\pic at (current bounding box.south east) [anchor=north east] { entity = {{place}
+\pic at (current bounding box.north east) [anchor=north east] { entity = {{place}
 {\textbf{Place}}
 {
   \secHeader{Label Components}
@@ -299,14 +299,37 @@
 }
 }};
 
-\pic at (current bounding box.south west) [anchor=south west] { entityweak = {{language}
-{\textbf{Language}}
+\draw[oone-many] (cycle) -- (work);
+\draw[one-many] (work) -- (text);
+\draw[one-omany] (text) -- (witness);
+\draw[one-omany] (witness) -- (part);
+\draw[many-one] (part) -- (doc);
+\draw[omany-one] (doc) -- (repository);
+% \draw[omany-omany] (witness.80) |-++(5,1)-| node[pos=0.4]{\textit{Witness(es) of Hypothetical Document}} (doc);
+
+\pic [below = 3em of text] { entity = {{genre}
+{\textbf{Genre}}
 {
-  - ...
+  \secHeader{Label Components}
+  - \textbf{preferred name} \\
+  - parent genre (\texttt{Genre})
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - description \\
+  - archetype
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
 }
 }};
 
-\pic [above = 1 em of language] { entityweak = {{form}
+%-------------------------------------------------------------------
+% Vocabularies
+%-------------------------------------------------------------------
+
+\pic at (current bounding box.south west) [anchor=south west]{ entityweak = {{form}
 {\textbf{Form}}
 {
   - prose \\
@@ -315,9 +338,9 @@
   - unknown
 }
 }};
+\draw[one-many] (form) -- (text);
 
-
-\pic [above = 1 em of form] { entityweak = {{matter}
+\pic [above = 3em of form] { entityweak = {{matter}
 {\textbf{Matter}}
 {
  - Britain or Brittany \\
@@ -327,43 +350,72 @@
  - unknown
 }
 }};
+\draw[many-many] (matter) -- (work);
+\draw[many-many] (matter) -- (text);
 
-% \pic [below = 1em of form] { entityweak = {{status}
-% {\textbf{Status}}
-% {
-%  - complete \\
-%  - defective \\
-%  - fragment \\
-% }
-% }};
+\pic [right = 1 em of form] { entityweak = {{meter}
+{\textbf{Meter}}
+{
+  - French alexandrine \\
+  - dodecasyllabe \\ 
+  - decasyllabe \\
+  - octosyllabe \\
+  - hexasyllabe \\
+  - pentasyllabe
+}
+}};
+\draw[oone-many] (meter) -- (text);
 
+\pic [right = 1 em of meter] { entityweak = {{rhyme}
+{\textbf{Rhyme}}
+{
+  - alliteration \\
+  - assonance \\ 
+  - end-rhyme \\
+  - generic
+}
+}};
+\draw[oone-many] (rhyme) -- (text);
 
-\draw[oone-many] (cycle) -- (work);
-\draw[one-many] (work) -- (text);
-\draw[one-omany] (text) -- (witness);
-\draw[one-omany] (witness) -- (part);
-\draw[many-one] (part) -- (doc);
-\draw[omany-one] (doc) -- (repository);
-% \draw[omany-omany] (witness.80) |-++(5,1)-| node[pos=0.4]{\textit{Witness(es) of Hypothetical Document}} (doc);
+\pic [below = 3em of witness] { entityweak = {{status}
+{\textbf{Status}}
+{
+ - complete \\
+ - defective \\
+ - fragment \\
+ - unknown
+}
+}};
+\draw[one-many] (status) -- (witness);
 
+\pic [right = 1em of genre, yshift=-5em] { entityweak = {{language}
+{\textbf{Language}}
+{
+  - ...
+}
+}};
+\draw[one-many] (language) -- (text);
+\draw[one-many] (genre) -- (text);
 
-% \draw[one-omany] (part.south) |-++(0,-1)|- (digitization.145);
-% \draw[omany-oone] (digitization.35) -|++(1,0)-| (repository.south);
-
-% % Place associative entity
-% \draw[omany-oone] (text.80) |-++(1,3.5)-| node[]{} (place.80);
-% \draw[omany-oone] (witness.90) |-++(1,2.5)-| node[]{} (place.100);
-% \draw[one-omany] (place) -- (repository);
-
-% % Person associative entity
-% \draw[omany-oone] (text.south) |-++(1,-5)-| node[]{} (person.290);
-% \draw[omany-oone] (witness.south) |-++(1,-4)-| node[]{} (person.250);
-
-% % Hypothesis associative entity
-% \draw[omany-oone] (witness.100) |-++(0,3.5)-| node[]{} (hypothesis.110);
-% \draw[omany-oone] (work.90) |-++(0,1)|- node[]{} (hypothesis.330);
-% \draw[omany-oone] (text.100) |-++(0,0.5)|- node[]{} (hypothesis.30);
-% \draw[omany-oone] (part.north) |-(2,11)-| node[]{} (hypothesis.70);
+\pic [right = 3em of status] { entity = {{scripta}
+{\textbf{Scripta}}
+{
+  \secHeader{Label Components}
+  - \textbf{preferred name} \\
+  \secHeaderEnd
+  %
+  \secHeader{Description}
+  - description \\
+  - region \\
+  - language (\texttt{Language})
+  \secHeaderEnd
+  %
+  \secHeader{References}
+  - \href{https://www.wikidata.org/wiki/Property:P1343}{described by source} \textsuperscript{+} (\texttt{Citation})
+}
+}};
+\draw[oone-many] (scripta) -- (witness);
+\draw[many-one] (scripta) -- (language);
 
 
 \end{tikzpicture}
